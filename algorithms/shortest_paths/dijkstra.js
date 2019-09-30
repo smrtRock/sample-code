@@ -10,13 +10,13 @@ class MemoTable{
     for(var vertex of vertices){
       this.table.push({name: vertex, cost: Number.POSITIVE_INFINITY, visited: false});
     }
-  };
+  }
   //all non-visited vertices
   getCandidateVertices(){
    return this.table.filter(entry => {
      return entry.visited === false;
    });
-  };
+  }
   //lowest cost, non-visited vertex
   nextVertex(){
    const candidates = this.getCandidateVertices();
@@ -32,24 +32,24 @@ class MemoTable{
      //iterate
      return null;
    }
-  };
+  }
   //update current cost
   setCurrentCost(vertex, cost){
     this.getEntry(vertex).cost =cost;
-  };
+  }
   setAsVisited(vertex){
     this.getEntry(vertex).visited = true;
-  };
+  }
   getEntry(vertex){
     return this.table.find(entry => entry.name == vertex);
-  };
+  }
   getCost(vertex){
     return this.getEntry(vertex).cost;
-  };
+  }
   toString(){
     console.log(this.table);
   }
-};
+}
 //the vertices for our memo table
 //I could also use a filter or map on the graph below
 //to avoid duplication; but this is nice
@@ -88,7 +88,7 @@ const evaluate = vertex => {
       //do it!
       memo.setCurrentCost(edge.to, tentativeCost);
     }
-  };
+  }
   //set this vertex as visited
   memo.setAsVisited(vertex.name);
   //get the next vertex
@@ -96,7 +96,7 @@ const evaluate = vertex => {
   //if there is a next vertex, let's do this
   //again...
   if(next) evaluate(next);
-}
+};
 //kick it off from the source vertex
 evaluate(memo.S);
 memo.toString();
@@ -108,14 +108,14 @@ memo.toString();
 { name: 'B', cost: 7, visited: true },
 { name: 'C', cost: 6, visited: true },
 { name: 'D', cost: 3, visited: true },
-{ name: 'E', cost: 2, visited: true } ]
+{ name: 'E', cost: 2, visited: true } ];
 
 
-{keyword, "if"}
+{keyword, "if";}
 {paren, }
-{variable, "x"}
-{operator, "=="}
-{number, "10"}
+{variable, "x";}
+{operator, "==";}
+{number, "10";}
 {left-brace, }
 
 var x = 12;
